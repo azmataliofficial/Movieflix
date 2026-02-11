@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movieflix India - Watch TV Shows Online, Watch Movies Online</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+        }
+
+        body {
+            background-color: #000;
+            color: #fff;
+            position: relative;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        /* Background Overlay */
+        .background-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: linear-gradient(to top, rgba(0, 0, 0, 0.8) 0, rgba(0, 0, 0, 0) 60%, rgba(0, 0, 0, 0.8) 100%);
+            z-index: -1;
+        }
+
+        /* Header with Logo */
+        header {
+            padding: 20px 50px;
+            position: relative;
+            z-index: 10;
+        }
+
+        .logo img {
+            width: 170px;
+            height: auto;
+            filter: invert(17%) sepia(100%) saturate(7000%) hue-rotate(0deg);
+        }
+
+        /* Main Container */
+        .main-container {
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Hero Section */
+        .hero-section {
+            background: url('https://assets.nflxext.com/ffe/siteui/vlv3/9d3533b2-0e2b-40b2-95e0-ecd7979cc88b/387cfa56-c7ea-4b8b-af80-f321b32a6c86/IN-en-20240311-popsignuptwoweeks-perspective_alpha_website_large.jpg') center/cover no-repeat;
+            height: 100vh;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: -1;
+        }
+
+        /* Sign In Container */
+        .signin-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .signin-box {
+            background-color: rgba(0, 0, 0, 0.85);
+            padding: 60px 68px 40px;
+            border-radius: 8px;
+            max-width: 450px;
+            width: 100%;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
+        }
+
+        .signin-box h1 {
+            margin-bottom: 28px;
+            font-size: 32px;
+            font-weight: 600;
+        }
+
+        /* Input Groups */
+        .input-group {
+            margin-bottom: 16px;
+            position: relative;
+        }
+
+        .input-group input {
+            width: 100%;
+            padding: 16px 20px;
+            background-color: #333;
+            border: none;
+            border-radius: 4px;
+            color: #fff;
+            font-size: 16px;
+            transition: all 0.2s ease;
+        }
+
+        .input-group input:focus {
+            outline: none;
+            background-color: #454545;
+            box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.2);
+        }
+
+        .input-group input:valid {
+            background-color: #333;
+        }
+
+        .input-group label {
+            position: absolute;
+            top: 50%;
+            left: 20px;
+            transform: translateY(-50%);
+            color: #8c8c8c;
+            font-size: 16px;
+            pointer-events: none;
+            transition: all 0.2s ease;
+        }
+
+        .input-group input:focus+label,
+        .input-group input:valid+label {
+            top: 10px;
+            font-size: 12px;
+            color: #8c8c8c;
+        }
+
+        /* Buttons */
+        .signin-btn,
+        .signup-btn {
+            width: 100%;
+            padding: 16px;
+            background-color: #e50914;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            margin-top: 24px;
+            transition: background-color 0.2s ease;
+        }
+
+        .signin-btn:hover,
+        .signup-btn:hover {
+            background-color: #f40612;
+        }
+
+        /* Form Help */
+        .form-help {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 12px;
+            font-size: 13px;
+            color: #b3b3b3;
+        }
+
+        .remember {
+            display: flex;
+            align-items: center;
+        }
+
+        .remember input {
+            margin-right: 5px;
+            accent-color: #b3b3b3;
+        }
+
+        .help-link {
+            color: #b3b3b3;
+            text-decoration: none;
+        }
+
+        .help-link:hover {
+            text-decoration: underline;
+        }
+
+        /* Sign Up Link */
+        .signup-link {
+            margin-top: 16px;
+            color: #737373;
+        }
+
+        .signup-link a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .signup-link a:hover {
+            text-decoration: underline;
+        }
+
+        /* Sign Up Container */
+        .signup-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .signup-box {
+            background-color: rgba(0, 0, 0, 0.85);
+            padding: 60px 68px 40px;
+            border-radius: 8px;
+            max-width: 450px;
+            width: 100%;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
+        }
+
+        .signup-box h1 {
+            margin-bottom: 28px;
+            font-size: 32px;
+            font-weight: 600;
+        }
+
+        .signin-link {
+            margin-top: 16px;
+            color: #737373;
+            text-align: center;
+        }
+
+        .signin-link a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .signin-link a:hover {
+            text-decoration: underline;
+        }
+
+        /* Error Message */
+        .error-message {
+            color: #e50914;
+            font-size: 13px;
+            margin-top: 5px;
+            display: none;
+        }
+
+        /* Social Login */
+        .social-login {
+            margin-top: 30px;
+            text-align: center;
+        }
+
+        .social-login p {
+            color: #737373;
+            margin-bottom: 15px;
+            font-size: 14px;
+        }
+
+        .social-icons {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+        }
+
+        .social-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #333;
+            color: white;
+            text-decoration: none;
+            font-size: 18px;
+            transition: all 0.3s ease;
+        }
+
+        .social-icon:hover {
+            background-color: #555;
+            transform: translateY(-2px);
+        }
+
+        /* Footer */
+        .footer {
+            background-color: rgba(0, 0, 0, 0.8);
+            padding: 30px 0;
+            margin-top: 50px;
+            border-top: 1px solid #333;
+        }
+
+        .footer-content {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .footer-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .footer-links a {
+            color: #737373;
+            text-decoration: none;
+            font-size: 13px;
+            min-width: 150px;
+        }
+
+        .footer-links a:hover {
+            text-decoration: underline;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+
+            .signin-box,
+            .signup-box {
+                padding: 40px 20px;
+                margin: 0 10px;
+                max-width: 100%;
+            }
+
+            header {
+                padding: 20px;
+                text-align: center;
+            }
+
+            .logo img {
+                width: 120px;
+            }
+
+            .hero-section {
+                background-position: center;
+            }
+        }
+
+        @media (max-width: 480px) {
+
+            .signin-box h1,
+            .signup-box h1 {
+                font-size: 26px;
+            }
+
+            .form-help {
+                flex-direction: column;
+                gap: 10px;
+            }
+        }
+
+        /* Loading Animation */
+        .loading {
+            display: none;
+            width: 20px;
+            height: 20px;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+            border-top-color: #fff;
+            animation: spin 1s ease-in-out infinite;
+            margin: 0 auto;
+        }
+
+        @keyframes spin {
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        /* Success Message */
+        .success-message {
+            color: #46d369;
+            text-align: center;
+            margin-top: 15px;
+            font-size: 14px;
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Background Elements -->
+    <div class="hero-section"></div>
+    <div class="background-overlay"></div>
+
+    <!-- Header -->
+    <header>
+        <div class="logo">
+            <img src="logo movie.png" alt="">
+        </div>
+    </header>
+
+    <!-- Main Container -->
+    <div class="main-container">
+        <!-- Sign In Form -->
+        <div class="signin-container">
+            <div class="signin-box">
+                <h1>Sign In</h1>
+
+                <form id="signinForm">
+                    <div class="input-group">
+                        <input type="email" id="email" required>
+                        <label for="email">Email or phone number</label>
+                        <div class="error-message" id="emailError">Please enter a valid email or phone number.</div>
+                    </div>
+
+                    <div class="input-group">
+                        <input type="password" id="password" required>
+                        <label for="password">Password</label>
+                        <div class="error-message" id="passwordError">Your password must contain between 4 and 60
+                            characters.</div>
+                    </div>
+
+                    <button type="submit" class="signin-btn" id="signinBtn">
+                        <span>Sign In</span>
+                        <div class="loading" id="signinLoading"></div>
+                    </button>
+
+                    <div class="success-message" id="signinSuccess">Sign in successful! Redirecting...</div>
+
+                    <div class="form-help">
+                        <div class="remember">
+                            <input type="checkbox" id="remember">
+                            <label for="remember">Remember me</label>
+                        </div>
+                        <a href="#" class="help-link">Need help?</a>
+                    </div>
+                </form>
+
+                <div class="social-login">
+                    <p>Or sign in with</p>
+                    <div class="social-icons">
+                        <a href="#" class="social-icon">
+                            <i class="fab fa-google"></i>
+                        </a>
+                        <a href="#" class="social-icon">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#" class="social-icon">
+                            <i class="fab fa-apple"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="signup-link">
+                    <p>New to Movieflix? <a href="#" id="signupLink">Sign up now</a></p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Sign Up Form (Hidden by default) -->
+        <div class="signup-container" style="display: none;">
+            <div class="signup-box">
+                <h1>Sign Up</h1>
+
+                <form id="signupForm">
+                    <div class="input-group">
+                        <input type="text" id="name" required>
+                        <label for="name">Your Name</label>
+                        <div class="error-message" id="nameError">Please enter your name.</div>
+                    </div>
+
+                    <div class="input-group">
+                        <input type="email" id="newEmail" required>
+                        <label for="newEmail">Email</label>
+                        <div class="error-message" id="newEmailError">Please enter a valid email.</div>
+                    </div>
+
+                    <div class="input-group">
+                        <input type="password" id="newPassword" required>
+                        <label for="newPassword">Password</label>
+                        <div class="error-message" id="newPasswordError">Your password must contain between 4 and 60
+                            characters.</div>
+                    </div>
+
+                    <button type="submit" class="signup-btn" id="signupBtn">
+                        <span>Sign Up</span>
+                        <div class="loading" id="signupLoading"></div>
+                    </button>
+
+                    <div class="success-message" id="signupSuccess">Account created successfully! Redirecting to sign
+                        in...</div>
+
+                    <div class="signin-link">
+                        <p>Already have an account? <a href="#" id="signinLink">Sign in</a></p>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <script>
+        // Toggle between Sign In and Sign Up forms
+        document.getElementById('signupLink').addEventListener('click', function (e) {
+            e.preventDefault();
+            document.querySelector('.signin-container').style.display = 'none';
+            document.querySelector('.signup-container').style.display = 'flex';
+        });
+
+        document.getElementById('signinLink').addEventListener('click', function (e) {
+            e.preventDefault();
+            document.querySelector('.signup-container').style.display = 'none';
+            document.querySelector('.signin-container').style.display = 'flex';
+        });
+    </script>
+</body>
+
+</html>

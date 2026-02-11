@@ -1,0 +1,649 @@
+@import url('https://fonts.googleapis.com/css2?family=Martel+Sans:wght@600&family=Poppins:wght@300;400;700&display=swap');
+
+* {
+    padding: 0;
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    background-color: black;
+}
+
+.main {
+    background-image: url("https://static.vecteezy.com/system/resources/previews/046/123/516/large_2x/red-helicopter-on-fire-flying-over-snowy-mountains-burning-chopper-above-icy-peaks-concept-of-aerial-accident-rescue-mission-emergency-situation-photo.jpeg");
+    background-position: center center;
+    background-size: max(1200px, 100vw);
+    background-repeat: no-repeat;
+    height: 644px;
+    position: relative;
+}
+
+.main .box {
+    /* z-index: -1; */
+    height: 644px;
+    width: 100%;
+    opacity: 0.69;
+    position: absolute;
+    top: 0;
+    background-color: black;
+}
+
+nav {
+    max-width: 60vw;
+    justify-content: space-between;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    height: 100px;
+
+    position: relative;
+    z-index: 100;
+}
+
+nav img {
+    color: red;
+    filter: invert(17%) sepia(100%) saturate(7000%) hue-rotate(0deg);
+    width: 130px;
+    position: relative;
+    z-index: 10;
+}
+
+nav button {
+    position: relative;
+    z-index: 10;
+}
+
+.hero {
+    font-family: 'Martel Sans', sans-serif;
+    height: calc(100% - 100px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    color: white;
+    position: relative;
+    gap: 23px;
+    padding: 0 30px;
+}
+
+.hero> :nth-child(1) {
+    font-family: 'Poppins', sans-serif;
+    font-weight: bolder;
+    font-size: 48px;
+    text-align: center;
+}
+
+.hero> :nth-child(2) {
+    font-weight: 400;
+    font-size: 24px;
+    text-align: center;
+}
+
+.hero> :nth-child(3) {
+    font-weight: 400;
+    font-size: 20px;
+    text-align: center;
+}
+
+.curve {
+    bottom: 192px;
+    height: 80px;
+    background-color: radial-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0));
+    position: absolute;
+    width: 100%;
+    z-index: 20;
+
+}
+
+.btn {
+    padding: 8px 20px;
+    margin-left: 12px;
+    font-weight: 400;
+    color: white;
+    background-color: rgba(248, 243, 243, 0.021);
+    border-radius: 4px;
+    border: 1px solid white;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+select {
+    z-index: 9999 !important;
+    position: relative;
+}
+
+option {
+    background-color: black;
+    color: white;
+}
+
+.btn-red {
+    background-color: rgb(255, 0, 0);
+    color: white;
+    padding: 12px 35px;
+    font-size: 20px;
+    border: none;
+    border-radius: 4px;
+    font-weight: 400;
+}
+
+.btn-red-sm {
+    background-color: red;
+    color: white;
+    border: none;
+}
+
+.hero-buttons {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+}
+
+.main input {
+    padding: 16px 101px 16px 14px;
+    color: white;
+    font-size: 15px;
+    border-radius: 4px;
+    background-color: rgba(23, 23, 23, 0.7);
+    border: 1px solid rgba(246, 238, 238, 0.5);
+}
+
+.first {
+    display: flex;
+    justify-content: center;
+    max-width: 70vw;
+    margin: auto;
+    color: white;
+    align-items: center;
+}
+
+
+
+.secImg {
+    position: relative;
+}
+
+.secImg img {
+    width: 560px;
+    position: relative;
+    z-index: 10;
+}
+
+.secImg video {
+    position: absolute;
+    top: 125px;
+    right: 82px;
+    width: 400px;
+}
+
+/* Rajma Chawal Movie Clip Adjustment */
+
+.secImg .movie {
+    position: absolute;
+    top: 115px;
+    right: 82px;
+    width: 430px;
+}
+
+section.first>div {
+    display: flex;
+    flex-direction: column;
+    padding: 34px 0;
+}
+
+section.first>div :nth-child(1) {
+    font-size: 48px;
+    font-weight: bolder;
+}
+
+
+section.first>div :nth-child(2) {
+    font-size: 24px;
+}
+
+/* Frequently Asked Questions */
+
+.container {
+    max-width: 1000px;
+    height: auto;
+    margin: 0 auto;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    padding: 30px;
+}
+
+h1 {
+    text-align: center;
+    color: #e50914;
+    margin-bottom: 30px;
+    font-size: 2.5rem;
+    font-weight: 700;
+}
+
+.faq-container {
+    margin-top: 20px;
+}
+
+.faq-item {
+    border-bottom: 1px solid #e0e0e0;
+    margin-bottom: 10px;
+}
+
+.faq-question {
+    padding: 20px 15px;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-weight: 500;
+    /* Not too bold */
+    font-size: 1.2rem;
+    color: #333;
+    transition: background-color 0.2s;
+}
+
+.faq-question .span {
+    color: white;
+}
+
+.faq-question:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.faq-question .icon {
+    font-size: 1.5rem;
+    color: #e50914;
+    transition: transform 0.3s ease;
+}
+
+.faq-answer {
+    padding: 0 15px;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease, padding 0.3s ease;
+    color: #555;
+    font-size: 1.05rem;
+    line-height: 1.7;
+}
+
+.faq-item.active .faq-answer {
+    padding: 15px 15px 25px 15px;
+    max-height: 500px;
+}
+
+.faq-item.active .faq-question .icon {
+    transform: rotate(360deg);
+    /* Plus to X transformation */
+}
+
+/* footer */
+
+footer {
+    color: white;
+    max-width: 60vw;
+    margin: auto;
+    padding: 60px;
+}
+
+footer .questions {
+    padding: 0 0 34px 0;
+    text-align: center;
+    font-size: 48px;
+    font-weight: 700;
+}
+
+
+.footer {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    color: white;
+}
+
+.copyright {
+    text-align: center;
+    font-size: 14px;
+    padding: 34px 0;
+}
+
+.footer a {
+    font-size: 14px;
+    color: white;
+    text-decoration: none;
+}
+
+.footer-item {
+    display: flex;
+    flex-direction: column;
+    gap: 23px;
+}
+
+
+@media screen and (max-width: 1300px) {
+
+    nav {
+        max-width: 90vw;
+    }
+
+    .first {
+        flex-wrap: wrap;
+    }
+
+    .secImg img {
+        width: 305px;
+    }
+
+    .secImg video {
+        width: 305px;
+    }
+
+    .hero> :nth-child(1) {
+        font-size: 32px;
+    }
+
+    .hero> :nth-child(2) {
+        font-size: 18px;
+    }
+
+    .hero> :nth-child(3) {
+        font-size: 18px;
+    }
+
+    .hero-buttons {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 16px;
+    }
+
+    .faq h2 {
+        text-align: center;
+        font-size: 32px;
+    }
+
+    footer {
+        max-width: 90vw;
+        padding: 75px 0;
+    }
+
+    .footer-item {
+        align-items: center;
+    }
+
+
+}
+
+
+
+@media screen and (max-width: 1300px) {
+
+    .footer {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 25px;
+    }
+
+    .secImg video {
+        position: absolute;
+        top: 83px;
+        right: 44px;
+        width: 220px;
+    }
+
+    .secImg .movie {
+        position: absolute;
+        top: 75px;
+        right: 20px;
+        width: 250px;
+    }
+}
+
+
+
+@media screen and (max-width: 600px) {
+    .secImg video {
+        position: absolute;
+        top: 83px;
+        right: 44px;
+        width: 220px;
+    }
+
+    .secImg .movie {
+        position: absolute;
+        top: 75px;
+        right: 20px;
+        width: 250px;
+    }
+
+    .container {
+        padding: 20px;
+    }
+
+    h1 {
+        font-size: 2rem;
+    }
+
+    .faq-question {
+        font-size: 1.1rem;
+        padding: 15px 10px;
+    }
+
+}
+
+/* Mobile Small Devices */
+@media (min-width: 350px) and (max-width: 400px) {
+
+    nav {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 10px 15px;
+    }
+
+    nav img {
+        width: 90px;
+        /* Logo smaller */
+        height: auto;
+    }
+
+    nav div {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+    }
+
+    .btn {
+        font-size: 12px;
+        padding: 5px 8px;
+    }
+
+    .btn-red-sm {
+        font-size: 12px;
+        padding: 6px 10px;
+        white-space: nowrap;
+    }
+
+    select.btn {
+        max-width: 90px;
+    }
+
+}
+
+
+
+
+
+
+
+/* Header */
+header {
+    padding: 20px 50px;
+}
+
+.logo img {
+    width: 150px;
+    height: auto;
+}
+
+/* Sign In Container */
+.signin-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 70vh;
+    padding: 20px;
+}
+
+.signin-box {
+    background-color: rgba(0, 0, 0, 0.75);
+    padding: 60px 68px 40px;
+    border-radius: 4px;
+    max-width: 450px;
+    width: 100%;
+}
+
+.signin-box h1 {
+    margin-bottom: 28px;
+    font-size: 32px;
+}
+
+/* Input Groups */
+.input-group {
+    margin-bottom: 16px;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 16px;
+    background-color: #333;
+    border: none;
+    border-radius: 4px;
+    color: #fff;
+    font-size: 16px;
+}
+
+.input-group input:focus {
+    outline: none;
+    background-color: #454545;
+}
+
+/* Buttons - FIXED */
+.signin-btn,
+.signup-btn {
+    width: 100%;
+    /* Changed from 107% to 100% */
+    padding: 16px;
+    background-color: #e50914;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: 24px;
+}
+
+.signin-btn:hover,
+.signup-btn:hover {
+    background-color: #f40612;
+}
+
+/* Form Help */
+.form-help {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 12px;
+    font-size: 13px;
+    color: #b3b3b3;
+}
+
+.remember {
+    display: flex;
+    align-items: center;
+}
+
+.remember input {
+    margin-right: 5px;
+}
+
+.help-link {
+    color: #b3b3b3;
+    text-decoration: none;
+}
+
+.help-link:hover {
+    text-decoration: underline;
+}
+
+/* Sign Up Link */
+.signup-link {
+    margin-top: 16px;
+    color: #737373;
+}
+
+.signup-link a {
+    color: white;
+    text-decoration: none;
+}
+
+.signup-link a:hover {
+    text-decoration: underline;
+}
+
+/* Sign Up Container */
+.signup-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 70vh;
+    padding: 20px;
+}
+
+.signup-box {
+    background-color: rgba(0, 0, 0, 0.75);
+    padding: 60px 68px 40px;
+    border-radius: 4px;
+    max-width: 450px;
+    width: 100%;
+}
+
+.signup-box h1 {
+    margin-bottom: 28px;
+    font-size: 32px;
+}
+
+.signin-link {
+    margin-top: 16px;
+    color: #737373;
+    text-align: center;
+}
+
+.signin-link a {
+    color: white;
+    text-decoration: none;
+}
+
+.signin-link a:hover {
+    text-decoration: underline;
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
+
+    .signin-box,
+    .signup-box {
+        padding: 40px 20px;
+        margin: 0 10px;
+    }
+
+    header {
+        padding: 20px;
+    }
+
+    .logo img {
+        width: 120px;
+    }
+}
