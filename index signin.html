@@ -4,506 +4,192 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Movieflix India - Watch TV Shows Online, Watch Movies Online</title>
+    <title>Movieflix India - Sign In</title>
     <link rel="stylesheet" href="index.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            background-color: #141414;
-            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-            color: white;
-            line-height: 1.5;
-            min-height: 100vh;
-            position: relative;
-        }
-
-        /* Background - Uncommented and fixed */
-        .hero-section {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: radial-gradient(circle at center, #1a1a1a 0%, #000000 100%);
-            z-index: -2;
-        }
-
-        .background-overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.6);
-            z-index: -1;
-        }
-
-        /* Main Container */
-        .main-container {
-            margin-top: -50px;
-            position: relative;
-            z-index: 1;
-            min-height: calc(100vh - 100px);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            /* padding: 20px 20px; */
-        }
-
-        /* Sign In/Up Containers */
-        .signin-container,
-        .signup-container {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            width: 100%;
-        }
-
-        .signin-box,
-        .signup-box {
-            background-color: rgba(0, 0, 0, 0.8);
-            padding: 60px 68px 40px;
-            border-radius: 8px;
-            max-width: 450px;
-            width: 100%;
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
-        }
-
-        .signin-box h1,
-        .signup-box h1 {
-            margin-bottom: 28px;
-            font-size: 32px;
-            font-weight: 600;
-            color: white;
-        }
-
-        /* Input Groups - Fixed label positioning */
-        .input-group {
-            margin-bottom: 16px;
-            position: relative;
-        }
-
-        .input-group input {
-            width: 100%;
-            padding: 20px 20px 8px;
-            background-color: #333;
-            border: none;
-            border-radius: 4px;
-            color: #fff;
-            font-size: 16px;
-            transition: all 0.2s ease;
-            height: 60px;
-        }
-
-        .input-group input:focus {
-            outline: none;
-            background-color: #454545;
-            box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.2);
-        }
-
-        .input-group label {
-            position: absolute;
-            top: 20px;
-            left: 20px;
-            color: #8c8c8c;
-            font-size: 16px;
-            pointer-events: none;
-            transition: all 0.2s ease;
-        }
-
-        .input-group input:focus+label,
-        .input-group input:not(:placeholder-shown)+label {
-            top: 8px;
-            font-size: 12px;
-            color: #8c8c8c;
-        }
-
-        .input-group input::placeholder {
-            color: transparent;
-        }
-
-        /* Buttons - Fixed and consolidated */
-        .signin-btn,
-        .signup-btn {
-            width: 100%;
-            padding: 16px;
-            background-color: #e50914;
-            color: white;
-            border: none;
-            border-radius: 4px;
-            font-size: 16px;
-            font-weight: bold;
-            cursor: pointer;
-            margin-top: 24px;
-            transition: background-color 0.2s ease;
-            position: relative;
-        }
-
-        .signin-btn:hover,
-        .signup-btn:hover {
-            background-color: #f40612;
-        }
-
-        /* Form Help */
-        .form-help {
-            display: flex;
-            justify-content: space-between;
-            margin-top: 12px;
-            font-size: 13px;
-            color: #b3b3b3;
-        }
-
-        .remember {
-            display: flex;
-            align-items: center;
-        }
-
-        .remember input {
-            margin-right: 5px;
-            accent-color: #e50914;
-        }
-
-        .remember label {
-            color: #b3b3b3;
-        }
-
-        .help-link {
-            color: #b3b3b3;
-            text-decoration: none;
-        }
-
-        .help-link:hover {
-            text-decoration: underline;
-        }
-
-        /* Sign Up/In Links */
-        .signup-link,
-        .signin-link {
-            margin-top: 16px;
-            color: #737373;
-        }
-
-        .signup-link a,
-        .signin-link a {
-            color: white;
-            text-decoration: none;
-            font-weight: 500;
-            margin-left: 5px;
-        }
-
-        .signup-link a:hover,
-        .signin-link a:hover {
-            text-decoration: underline;
-        }
-
-        /* Social Login */
-        .social-login {
-            margin-top: 30px;
-            text-align: center;
-        }
-
-        .social-login p {
-            color: #737373;
-            margin-bottom: 15px;
-            font-size: 14px;
-        }
-
-        .social-icons {
-            display: flex;
-            justify-content: center;
-            gap: 15px;
-        }
-
-        .social-icon {
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background-color: #333;
-            color: white;
-            text-decoration: none;
-            font-size: 18px;
-            transition: all 0.3s ease;
-        }
-
-        .social-icon:hover {
-            background-color: #555;
-            transform: translateY(-2px);
-        }
-
-        /* Error and Success Messages */
-        .error-message {
-            color: #e50914;
-            font-size: 13px;
-            margin-top: 5px;
-            display: none;
-        }
-
-        .success-message {
-            color: #46d369;
-            text-align: center;
-            margin-top: 15px;
-            font-size: 14px;
-            display: none;
-        }
-
-        /* Loading Animation */
-        .loading {
-            display: none;
-            width: 20px;
-            height: 20px;
-            border: 2px solid rgba(255, 255, 255, 0.3);
-            border-radius: 50%;
-            border-top-color: #fff;
-            animation: spin 1s ease-in-out infinite;
-            margin: 0 auto;
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-        }
-
-        @keyframes spin {
-            to {
-                transform: translate(-50%, -50%) rotate(360deg);
-            }
-        }
-
-        /* Footer */
-        .footer {
-            background-color: rgba(0, 0, 0, 0.8);
-            padding: 30px 0;
-            margin-top: 50px;
-            border-top: 1px solid #333;
-        }
-
-        .footer-content {
-            max-width: 1000px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-
-        .footer-links {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 15px;
-            margin-top: 20px;
-        }
-
-        .footer-links a {
-            color: #737373;
-            text-decoration: none;
-            font-size: 13px;
-            min-width: 150px;
-        }
-
-        .footer-links a:hover {
-            text-decoration: underline;
-        }
-
-        /* Responsive Design - Improved */
-        @media (max-width: 768px) {
-            nav {
-                padding: 15px 20px;
-            }
-
-            nav span img {
-                width: 120px;
-            }
-
-            .nav-right {
-                gap: 10px;
-            }
-
-            .signin-box,
-            .signup-box {
-                padding: 40px 30px;
-                margin: 0 10px;
-                max-width: 100%;
-            }
-
-            .signin-box h1,
-            .signup-box h1 {
-                font-size: 28px;
-            }
-        }
-
-        @media (max-width: 480px) {
-            nav {
-                text-align: center;
-            }
-
-            nav .btn {
-                padding: 4px 12px;
-            }
-
-            .nav-right {
-                width: 100%;
-            }
-
-            .signin-box,
-            .signup-box {
-                padding: 30px 20px;
-            }
-
-            .signin-box h1,
-            .signup-box h1 {
-                font-size: 24px;
-            }
-
-            .form-help {
-                flex-direction: column;
-                gap: 10px;
-                align-items: flex-start;
-            }
-
-            .input-group input {
-                padding: 16px 16px 8px;
-                height: 54px;
-            }
-        }
-    </style>
 </head>
 
 <body>
-    <!-- Background Elements - Uncommented -->
-    <div class="hero-section"></div>
-    <div class="background-overlay"></div>
-
-    <!-- Navigation - Fixed -->
+    <!-- Navigation -->
     <nav>
         <span>
             <img src="logo movie.png" alt="MovieFlix Logo">
         </span>
-        <div class="nav-right">
+        <div>
             <select class="btn">
                 <option value="en">English</option>
                 <option value="hi">हिन्दी</option>
                 <option value="ur">اردو</option>
                 <option value="ar">عربي</option>
             </select>
-            <a href="#" class="btn btn-red-sm" id="signInNavBtn">Sign In</a>
         </div>
     </nav>
 
     <!-- Main Container -->
-    <div class="main-container">
+    <div class="auth-main-container">
+
         <!-- Sign In Form -->
-        <div class="signin-container">
+        <div class="signin-container" id="signinContainer">
             <div class="signin-box">
                 <h1>Sign In</h1>
 
-                <form id="signinForm">
-                    <div class="input-group">
-                        <input type="email" id="email" placeholder=" " required>
-                        <label for="email">Email or phone number</label>
-                        <div class="error-message" id="emailError">Please enter a valid email or phone number.</div>
+                <div class="input-group">
+                    <input type="email" id="email" placeholder=" " required>
+                    <label for="email">Email or phone number</label>
+                    <div class="error-message" id="emailError">Please enter a valid email or phone number.</div>
+                </div>
+
+                <div class="input-group">
+                    <input type="password" id="password" placeholder=" " required>
+                    <label for="password">Password</label>
+                    <div class="error-message" id="passwordError">Password must be between 4 and 60 characters.</div>
+                </div>
+
+                <button class="signin-btn" id="signinBtn" onclick="handleSignIn()">
+                    Sign In
+                </button>
+
+                <div class="success-message" id="signinSuccess">Sign in successful! Redirecting...</div>
+
+                <div class="form-help">
+                    <div class="remember">
+                        <input type="checkbox" id="remember">
+                        <label for="remember">Remember me</label>
                     </div>
-
-                    <div class="input-group">
-                        <input type="password" id="password" placeholder=" " required>
-                        <label for="password">Password</label>
-                        <div class="error-message" id="passwordError">Your password must contain between 4 and 60
-                            characters.</div>
-                    </div>
-
-                    <button type="submit" class="signin-btn" id="signinBtn">
-                        <span>Sign In</span>
-                        <div class="loading" id="signinLoading"></div>
-                    </button>
-
-                    <div class="success-message" id="signinSuccess">Sign in successful! Redirecting...</div>
-
-                    <div class="form-help">
-                        <div class="remember">
-                            <input type="checkbox" id="remember">
-                            <label for="remember">Remember me</label>
-                        </div>
-                        <a href="#" class="help-link">Need help?</a>
-                    </div>
-                </form>
+                    <a href="#" class="help-link">Need help?</a>
+                </div>
 
                 <div class="social-login">
                     <p>Or sign in with</p>
                     <div class="social-icons">
-                        <a href="#" class="social-icon">
-                            <i class="fab fa-google"></i>
-                        </a>
-                        <a href="#" class="social-icon">
-                            <i class="fab fa-facebook-f"></i>
-                        </a>
-                        <a href="#" class="social-icon">
-                            <i class="fab fa-apple"></i>
-                        </a>
+                        <a href="#" class="social-icon"><i class="fab fa-google"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-apple"></i></a>
                     </div>
                 </div>
 
                 <div class="signup-link">
-                    <p>New to Movieflix? <a href="#" id="signupLink" onclick="showSignUp()">Sign up</a></p>
+                    <p>New to Movieflix? <a href="#" onclick="showSignUp()">Sign up now</a></p>
                 </div>
             </div>
         </div>
 
         <!-- Sign Up Form (Hidden by default) -->
-        <div class="signup-container" style="display: none;">
+        <div class="signup-container" id="signupContainer" style="display: none;">
             <div class="signup-box">
                 <h1>Sign Up</h1>
 
-                <form id="signupForm">
-                    <div class="input-group">
-                        <input type="text" id="name" placeholder=" " required>
-                        <label for="name">Your Name</label>
-                        <div class="error-message" id="nameError">Please enter your name.</div>
-                    </div>
+                <div class="input-group">
+                    <input type="text" id="name" placeholder=" " required>
+                    <label for="name">Your Name</label>
+                    <div class="error-message" id="nameError">Please enter your name.</div>
+                </div>
 
-                    <div class="input-group">
-                        <input type="email" id="newEmail" placeholder=" " required>
-                        <label for="newEmail">Email</label>
-                        <div class="error-message" id="newEmailError">Please enter a valid email.</div>
-                    </div>
+                <div class="input-group">
+                    <input type="email" id="newEmail" placeholder=" " required>
+                    <label for="newEmail">Email</label>
+                    <div class="error-message" id="newEmailError">Please enter a valid email.</div>
+                </div>
 
-                    <div class="input-group">
-                        <input type="password" id="newPassword" placeholder=" " required>
-                        <label for="newPassword">Password</label>
-                        <div class="error-message" id="newPasswordError">Your password must contain between 4 and 60
-                            characters.</div>
-                    </div>
+                <div class="input-group">
+                    <input type="password" id="newPassword" placeholder=" " required>
+                    <label for="newPassword">Password</label>
+                    <div class="error-message" id="newPasswordError">Password must be between 4 and 60 characters.</div>
+                </div>
 
-                    <button type="submit" class="signup-btn" id="signupBtn">
-                        <span>Sign Up</span>
-                        <div class="loading" id="signupLoading"></div>
-                    </button>
+                <button class="signup-btn" id="signupBtn" onclick="handleSignUp()">
+                    Sign Up
+                </button>
 
-                    <div class="success-message" id="signupSuccess">Account created successfully! Redirecting to sign
-                        in...</div>
+                <div class="success-message" id="signupSuccess">Account created! Redirecting to sign in...</div>
 
-                    <div class="signin-link">
-                        <p>Already have an account? <a href="#" id="signinLink" onclick="showSignIn()">Sign in</a></p>
-                    </div>
-                </form>
+                <div class="signin-link">
+                    <p>Already have an account? <a href="#" onclick="showSignIn()">Sign in</a></p>
+                </div>
             </div>
         </div>
     </div>
 
     <script>
         function showSignUp() {
-            document.querySelector('.signin-container').style.display = 'none';
-            document.querySelector('.signup-container').style.display = 'flex';
+            document.getElementById('signinContainer').style.display = 'none';
+            document.getElementById('signupContainer').style.display = 'flex';
         }
 
         function showSignIn() {
-            document.querySelector('.signup-container').style.display = 'none';
-            document.querySelector('.signin-container').style.display = 'flex';
+            document.getElementById('signupContainer').style.display = 'none';
+            document.getElementById('signinContainer').style.display = 'flex';
+        }
+
+        function handleSignIn() {
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+            const emailError = document.getElementById('emailError');
+            const passwordError = document.getElementById('passwordError');
+            const successMsg = document.getElementById('signinSuccess');
+
+            // Reset errors
+            emailError.style.display = 'none';
+            passwordError.style.display = 'none';
+            successMsg.style.display = 'none';
+
+            let valid = true;
+
+            if (!email || !email.includes('@')) {
+                emailError.style.display = 'block';
+                valid = false;
+            }
+            if (!password || password.length < 4) {
+                passwordError.style.display = 'block';
+                valid = false;
+            }
+
+            if (valid) {
+                successMsg.style.display = 'block';
+                setTimeout(() => {
+                    window.location.href = 'index.html';
+                }, 1500);
+            }
+        }
+
+        function handleSignUp() {
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('newEmail').value;
+            const password = document.getElementById('newPassword').value;
+            const nameError = document.getElementById('nameError');
+            const emailError = document.getElementById('newEmailError');
+            const passwordError = document.getElementById('newPasswordError');
+            const successMsg = document.getElementById('signupSuccess');
+
+            // Reset errors
+            nameError.style.display = 'none';
+            emailError.style.display = 'none';
+            passwordError.style.display = 'none';
+            successMsg.style.display = 'none';
+
+            let valid = true;
+
+            if (!name || name.trim().length < 2) {
+                nameError.style.display = 'block';
+                valid = false;
+            }
+            if (!email || !email.includes('@')) {
+                emailError.style.display = 'block';
+                valid = false;
+            }
+            if (!password || password.length < 4) {
+                passwordError.style.display = 'block';
+                valid = false;
+            }
+
+            if (valid) {
+                successMsg.style.display = 'block';
+                setTimeout(() => {
+                    showSignIn();
+                    successMsg.style.display = 'none';
+                }, 1500);
+            }
         }
     </script>
 </body>
-
 </html>
